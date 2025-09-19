@@ -19,7 +19,7 @@ This is a Machine Learning + Flask web app that detects whether a given **Urdu c
 
 ## ▶️ Run the App
 ```bash
-git clone https://github.com/your-username/cyber_abuse_detector.git
-cd cyber_abuse_detector
+git clone https://github.com/abasit179/cyber-abuse-detection-urdu.git
+cd cyber-abuse-detection-urdu
 pip install -r requirements.txt
 python app.py
