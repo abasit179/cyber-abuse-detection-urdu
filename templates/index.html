@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cyber Abuse Detection - Roman Urdu</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>⚡ Cyber Abuse Detector</h1>
+    <p>Enter a Urdu comment below to check if it’s <b>Abusive</b> or <b>Non-Abusive</b>.</p>
+    
+    <script>
+        function validateInput() {
+            let input = document.getElementById("comment").value;
+            let urduRegex = /^[\u0600-\u06FF\s]+$/;
+
+            if (!urduRegex.test(input)) {
+                alert("⚠ Please enter text in Urdu only!");
+                return false;
+            }
+            return true;
+        }
+    </script>
+
+    <form method="POST" onsubmit="return validateInput()">
+        <textarea id="comment" name="comment" placeholder="اردو میں تبصرہ لکھیں"></textarea>
+        <button type="submit">Check</button>
+    </form>
+
+    {% if prediction %}
+      <div class="result {{ 'abusive' if prediction == 'Abusive' else 'non-abusive' }}">
+        <p><strong>Prediction:</strong> {{ prediction }}</p>
+      </div>
+    {% endif %}
+  </div>
+</body>
+</html>
